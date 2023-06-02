@@ -42,9 +42,10 @@ export const LotteryCard = (props: any) => {
         margin: "0 auto",
         position: "relative",
         marginBottom: "2rem",
-        "@smMax" : {
+        "@smMax": {
           width: "100%",
-        }
+          height: "28rem",
+        },
       }}
     >
       <Card.Header
@@ -75,7 +76,6 @@ export const LotteryCard = (props: any) => {
               "@smMax": {
                 fontSize: "24px",
                 textAlign: "center",
-                marginTop: "2rem",
               },
             }}
           >
@@ -88,6 +88,9 @@ export const LotteryCard = (props: any) => {
           display: "flex",
           alignItems: "center",
           marginTop: "4rem",
+          "@smMax": {
+            marginTop: "3rem",
+          },
         }}
       >
         <Row
@@ -104,6 +107,9 @@ export const LotteryCard = (props: any) => {
               fontSize: "24px",
               fontWeight: "bold",
               color: `${lotteryColor}`,
+              "@smMax": {
+                fontSize: "18px",
+              },
             }}
           >
             Concurso: {resultadoConcurso.concurso}
@@ -114,12 +120,23 @@ export const LotteryCard = (props: any) => {
               fontSize: "24px",
               fontWeight: "bold",
               color: `${lotteryColor}`,
+              "@smMax": {
+                fontSize: "18px",
+              },
             }}
           >
             Data: {resultadoConcurso.data}
           </Text>
         </Row>
-        <Row justify="center">
+        <Row justify="center"
+          css={{
+            display: "flex",
+            flexWrap: "wrap",
+            "@smMax": {
+              paddingTop: "1rem",
+            },
+          }}
+          >
           {resultadoConcurso.dezenas &&
             resultadoConcurso.dezenas?.map((numbers: number) => {
               return (
@@ -127,6 +144,7 @@ export const LotteryCard = (props: any) => {
                   auto
                   key={Math.random()}
                   css={{
+                    fontSize: "1rem",
                     padding: "1rem",
                     width: "48px",
                     height: "48px",
@@ -135,6 +153,7 @@ export const LotteryCard = (props: any) => {
                     color: "$whiteColor",
                     fontWeight: "bold",
                     marginRight: "0.5rem",
+                    marginBottom: "0.5rem", // Espaçamento vertical entre os botões
                     pointerEvents: "none",
                   }}
                 >
