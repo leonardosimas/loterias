@@ -13,7 +13,10 @@ const Home: NextPage = () => {
     [],
     `https://loteriascaixa-api.herokuapp.com/api`
   );
-  const [concursos] = useRequestData([],`https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest`);
+  const [concursos] = useRequestData(
+    [],
+    `https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest`
+  );
   const [loterias, setLoterias] = useState(0);
   const [valor, setValor] = useState(2359);
 
@@ -32,8 +35,14 @@ const Home: NextPage = () => {
   // console.log("Loteria Concursos *** " , loteriaconcurso)
 
   //Buscando os resultados dos sorteios
-  const [resultadoConcursoMegaSena] = useRequestData([],`https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest`);
-  const [resultadoConcursoQuina] = useRequestData([],`https://loteriascaixa-api.herokuapp.com/api/quina/latest`);
+  const [resultadoConcursoMegaSena] = useRequestData(
+    [],
+    `https://loteriascaixa-api.herokuapp.com/api/mega-sena/latest`
+  );
+  const [resultadoConcursoQuina] = useRequestData(
+    [],
+    `https://loteriascaixa-api.herokuapp.com/api/quina/latest`
+  );
 
   return (
     <Container
@@ -49,26 +58,22 @@ const Home: NextPage = () => {
         height: "100%",
       }}
     >
-      <Header />
-
       <Row
         css={{
-          maxWidth: "1440px",
-          padding: 0,
-          height: "100vh",
-          "@smMax": {
-            flexDirection: "column-reverse",
-            maxWidth: "100%",
-            height: "auto",
-            padding: 0,
-          },
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          
         }}
       >
+        <Header />
         <Col
           css={{
             display: "flex",
             flexDirection: "column",
-            margin: "2rem", // Divisão dos Cards
+            padding: "1rem", // Espaço entre os cards
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -77,7 +82,7 @@ const Home: NextPage = () => {
             loteria="MEGA-SENA"
             resultadoConcurso={resultadoConcursoMegaSena}
           />
-          
+
           <LotteryCard
             loteria="QUINA"
             resultadoConcurso={resultadoConcursoQuina}
